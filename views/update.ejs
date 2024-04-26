@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        .button-container a {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .button-container a:hover {
+            background-color: #0056b3;
+        }
+
+        .button-container a i {
+            margin-right: 5px;
+        }
+
+        .top-details th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <%- include('include/header')-%>
+
+    <h1>Update Student Data</h1>
+    <table>
+        <tr class="top-details">
+            <th>Rollno</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Fees</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <% myData.forEach((key) => { %>
+            <tr>
+                <td><%= key.rollno %></td>
+                <td><%= key.name %></td>
+                <td><%= key.city %></td>
+                <td><%= key.fees %></td>
+                <td class="button-container">
+                    <a href="/recedit/<%=key._id%>"><i class="fas fa-pen"></i>Update</a>
+                </td>
+                <th>
+                    <a href="/recdelete/<%=key._id%>">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </th>
+            </tr>
+        <% }) %>
+    </table>
+    <%- include('include/footer')-%>
+    
+</body>
+</html>

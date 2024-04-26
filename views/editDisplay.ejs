@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Record</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .search-data {
+            margin-top: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <%- include('include/header')-%>
+    <div class="container">
+        <h1>Edit Record</h1>
+        <div class="search-data">
+            <form method="post" action="/editSave">
+                <input type="hidden" value="<%=myData._id%>" name="id">
+                <label for="rno">Enter Rollno</label>
+                <input type="text" value="<%=myData.rollno%>" name="rno" id="rno">
+                <label for="nm">Enter Name</label>
+                <input type="text" value="<%=myData.name%>" name="nm" id="nm">
+                <label for="ct">Enter City</label>
+                <input type="text" value="<%=myData.city%>" name="ct" id="ct">
+                <label for="fs">Enter Fees</label>
+                <input type="text" value="<%=myData.fees%>" name="fs" id="fs">
+                <button>Edit Save</button>
+            </form>
+        </div>
+    </div>
+    <%- include('include/footer')-%>
+</body>
+</html>
